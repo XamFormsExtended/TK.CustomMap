@@ -13,7 +13,8 @@ namespace TK.CustomMap.Sample
 
             // The root page of your application
             var mainPage = new NavigationPage(new SamplePage());
-            if (Device.OS == TargetPlatform.iOS)
+            
+            if (Device.RuntimePlatform == "iOS")
             {
                 mainPage.BarBackgroundColor = Color.FromHex("#f1f1f1");
             }

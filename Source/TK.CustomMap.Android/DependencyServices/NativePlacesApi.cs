@@ -16,30 +16,29 @@ namespace TK.CustomMap.Droid
     /// <inheritdoc />
     public class NativePlacesApi : INativePlacesApi
     {
-
-         GoogleApiClient _apiClient;
-         AutocompletePredictionBuffer _buffer;
+        private GoogleApiClient _apiClient;
+        private AutocompletePredictionBuffer _buffer;
 
         ///<inheritdoc/>
         public async Task<IEnumerable<IPlaceResult>> GetPredictions(string query, MapSpan bounds)
         {
             if (_apiClient == null || !_apiClient.IsConnected) Connect();
 
-            List<IPlaceResult> result = new List<IPlaceResult>();
+            var result = new List<IPlaceResult>();
 
-            double mDistanceInMeters = bounds.Radius.Meters;
+            var mDistanceInMeters = bounds.Radius.Meters;
             
-            double latRadian = bounds.LatitudeDegrees;
+            var latRadian = bounds.LatitudeDegrees;
 
-            double degLatKm = 110.574235;
-            double degLongKm = 110.572833 * Math.Cos(latRadian);
-            double deltaLat = mDistanceInMeters / 1000.0 / degLatKm;
-            double deltaLong = mDistanceInMeters / 1000.0 / degLongKm;
+            const double degLatKm = 110.574235;
+            var degLongKm = 110.572833 * Math.Cos(latRadian);
+            var deltaLat = mDistanceInMeters / 1000.0 / degLatKm;
+            var deltaLong = mDistanceInMeters / 1000.0 / degLongKm;
 
-            double minLat = bounds.Center.Latitude - deltaLat;
-            double minLong = bounds.Center.Longitude - deltaLong;
-            double maxLat = bounds.Center.Latitude + deltaLat;
-            double maxLong = bounds.Center.Longitude + deltaLong;
+            var minLat = bounds.Center.Latitude - deltaLat;
+            var minLong = bounds.Center.Longitude - deltaLong;
+            var maxLat = bounds.Center.Latitude + deltaLat;
+            var maxLong = bounds.Center.Longitude + deltaLong;
 
             if (_buffer != null)
             {
@@ -70,7 +69,7 @@ namespace TK.CustomMap.Droid
         {
             if(_apiClient == null)
             {
-                _apiClient = new GoogleApiClient.Builder(Forms.Context)
+                _apiClient = new GoogleApiClient.Builder(Android.App.Application.Context)
                     .AddApi(PlacesClass.GEO_DATA_API)
                     .Build();
             }
@@ -90,11 +89,9 @@ namespace TK.CustomMap.Droid
             _apiClient.Dispose();
             _apiClient = null;
 
-            if (_buffer != null)
-            {
-                _buffer.Dispose();
-                _buffer = null;
-            }
+            if (_buffer == null) return;
+            _buffer.Dispose();
+            _buffer = null;
         }
         /// <inheritdoc/>
         public async Task<TKPlaceDetails> GetDetails(string id)

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TK.CustomMap
+﻿namespace TK.CustomMap
 {
     public struct Distance
     {
-        const double MetersPerMile = 1609.344;
-        const double MetersPerKilometer = 1000.0;
+        private const double _metersPerMile = 1609.344;
+        private const double _metersPerKilometer = 1000.0;
 
         public Distance(double meters)
         {
@@ -16,9 +12,9 @@ namespace TK.CustomMap
 
         public double Meters { get; }
 
-        public double Miles => Meters / MetersPerMile;
+        public double Miles => Meters / _metersPerMile;
 
-        public double Kilometers => Meters / MetersPerKilometer;
+        public double Kilometers => Meters / _metersPerKilometer;
 
         public static Distance FromMiles(double miles)
         {
@@ -26,7 +22,7 @@ namespace TK.CustomMap
             {
                 miles = 0;
             }
-            return new Distance(miles * MetersPerMile);
+            return new Distance(miles * _metersPerMile);
         }
 
         public static Distance FromMeters(double meters)
@@ -44,7 +40,7 @@ namespace TK.CustomMap
             {
                 kilometers = 0;
             }
-            return new Distance(kilometers * MetersPerKilometer);
+            return new Distance(kilometers * _metersPerKilometer);
         }
 
         public bool Equals(Distance other)
@@ -54,9 +50,9 @@ namespace TK.CustomMap
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj))
+            if (obj is null)
                 return false;
-            return obj is Distance && Equals((Distance)obj);
+            return obj is Distance distance && Equals(distance);
         }
 
         public override int GetHashCode()

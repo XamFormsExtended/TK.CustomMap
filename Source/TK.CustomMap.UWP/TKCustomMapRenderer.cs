@@ -15,6 +15,7 @@ using Windows.Services.Maps;
 using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Media.Imaging;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Platform.UWP;
 using Point = Xamarin.Forms.Point;

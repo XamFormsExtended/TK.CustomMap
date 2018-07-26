@@ -1,22 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
+    <TargetFrameworks>netstandard1.1;netstandard2.0;</TargetFrameworks>
     <Authors>Torben Sudau</Authors>
     <Company />
-    <Version>2.0.1</Version>
+    <Version>2.0.1.2</Version>
     <Configurations>Debug;Release;AppVeyor</Configurations>
-    <AssemblyVersion>2.0.1.0</AssemblyVersion>
-    <FileVersion>2.0.1.0</FileVersion>
+    <AssemblyVersion>2.0.1.2</AssemblyVersion>
+    <FileVersion>2.0.1.2</FileVersion>
     <Copyright>Copyright © 2018 - Torben Sudau</Copyright>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\</OutputPath>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard1.1\TK.CustomMap.xml</DocumentationFile>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>bin\Release\$(TargetFramework)\TK.CustomMap.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AppVeyor|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard1.1\TK.CustomMap.xml</DocumentationFile>
+    <OutputPath>bin\Release\</OutputPath> 
+    <DocumentationFile>bin\Release\$(TargetFramework)\TK.CustomMap.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="project.lock.json" />
@@ -24,6 +27,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.91635" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
   </ItemGroup>
 </Project>

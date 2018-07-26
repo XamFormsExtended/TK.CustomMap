@@ -2,12 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata minClientVersion="2.8.3">
     <releaseNotes>
-      - 2.0.1
-      - #308 Issues with Route Calculation
-      - #309 NullReferenceException when I click in the current position (blue dot)
     </releaseNotes>
-    <id>TK.CustomMap</id>
-    <version>2.0.1</version>
+    <id>XFX.TK.CustomMap</id>
+    <version>2.0.1.1</version>
     <title>Rich and bindable Map control for Xamarin.Forms</title>
     <authors>Torben Sudau</authors>
     <owners>Torben Sudau</owners>
@@ -16,26 +13,30 @@
     <!--<iconUrl>https://www.nuget.org/Content/Images/packageDefaultIcon.png</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
+      XFX.TK.CustomMap is a fork &amp; patch.
       TK.CustomMap lets you customize pins, add overlays, calculate routes, search place predictions, cluster pins and more! 
     </description>
     <summary>Rich and bindable Map control for Xamarin.Forms</summary>
     <tags>xamarin, map, xamarin.forms, xamarin.forms.maps, extended map, custom map</tags>
     <dependencies>
       <group targetFramework="netstandard1.1">
-        <dependency id="NETStandard.Library" version="1.6.1" />
-        <dependency id="Xamarin.Forms" version="2.5.0.91635" />
+        <dependency id="Xamarin.Forms" version="2.5.1.527436" />
+        <dependency id="Newtonsoft.Json" version="10.0.3" />
+      </group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="Xamarin.Forms" version="2.5.1.527436" />
         <dependency id="Newtonsoft.Json" version="10.0.3" />
       </group>
       <group targetFramework="MonoAndroid70">
         <dependency id="Xamarin.GooglePlayServices.Location" version="42.1021.1" />
         <dependency id="Xamarin.GooglePlayServices.Places" version="42.1021.1" />
         <dependency id="Xamarin.Android.Maps.Utils" version="0.5.0" />
-        <dependency id="Xamarin.Forms" version="2.5.0.91635" />
+        <dependency id="Xamarin.Forms" version="2.5.1.527436" />
         <dependency id="Newtonsoft.Json" version="10.0.3" />
       </group>
       <group targetFramework="Xamarin.iOS10">
         <dependency id="Xamarin.iOS.ClusterKit" version="0.3.1.1" />
-        <dependency id="Xamarin.Forms" version="2.5.0.91635" />
+        <dependency id="Xamarin.Forms" version="2.5.1.527436" />
       </group>
       <!--<group targetFramework="uap10.0">
         <dependency id="Xamarin.Forms" version="2.4.0.282" />
@@ -46,18 +47,20 @@
     <!--Core-->
     <file src="..\Source\TK.CustomMap\bin\Release\netstandard1.1\TK.CustomMap.dll" target="lib\netstandard1.1" />
     <file src="..\Source\TK.CustomMap\bin\Release\netstandard1.1\TK.CustomMap.xml" target="lib\netstandard1.1" />
+    <file src="..\Source\TK.CustomMap\bin\Release\netstandard2.0\TK.CustomMap.dll" target="lib\netstandard2.0" />
+    <file src="..\Source\TK.CustomMap\bin\Release\netstandard2.0\TK.CustomMap.xml" target="lib\netstandard2.0" />
 
     <!--Xamarin.Android-->
     <file src="..\Source\TK.CustomMap.Android\bin\Release\TK.CustomMap.Android.dll" target="lib\MonoAndroid10" />
     <file src="..\Source\TK.CustomMap.Android\bin\Release\TK.CustomMap.Android.xml" target="lib\MonoAndroid10" />
-    <file src="..\Source\TK.CustomMap\bin\Release\netstandard1.1\TK.CustomMap.dll" target="lib\MonoAndroid10" />
-    <file src="..\Source\TK.CustomMap\bin\Release\netstandard1.1\TK.CustomMap.xml" target="lib\MonoAndroid10" />
+    <file src="..\Source\TK.CustomMap\bin\Release\netstandard2.0\TK.CustomMap.dll" target="lib\MonoAndroid10" />
+    <file src="..\Source\TK.CustomMap\bin\Release\netstandard2.0\TK.CustomMap.xml" target="lib\MonoAndroid10" />
 
     <!--Xamarin.iOS Unified-->
     <file src="..\Source\TK.CustomMap.iOSUnified\bin\Release\TK.CustomMap.iOSUnified.dll" target="lib\Xamarin.iOS10" />
     <file src="..\Source\TK.CustomMap.iOSUnified\bin\Release\TK.CustomMap.iOSUnified.xml" target="lib\Xamarin.iOS10" />
-    <file src="..\Source\TK.CustomMap\bin\Release\netstandard1.1\TK.CustomMap.dll" target="lib\Xamarin.iOS10" />
-    <file src="..\Source\TK.CustomMap\bin\Release\netstandard1.1\TK.CustomMap.xml" target="lib\Xamarin.iOS10" />
+    <file src="..\Source\TK.CustomMap\bin\Release\netstandard2.0\TK.CustomMap.dll" target="lib\Xamarin.iOS10" />
+    <file src="..\Source\TK.CustomMap\bin\Release\netstandard2.0\TK.CustomMap.xml" target="lib\Xamarin.iOS10" />
 
     <!--UWP-->
     <!--<file src="TK.CustomMap\TK.CustomMap.UWP\bin\Release\TK.CustomMap.UWP.dll" target="lib\uap10.0" />

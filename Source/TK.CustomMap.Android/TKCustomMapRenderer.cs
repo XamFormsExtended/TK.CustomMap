@@ -1416,8 +1416,8 @@ namespace TK.CustomMap.Droid
         public void MoveToMapRegion(MapSpan region, bool animate)
         {
             if (_googleMap == null) return;
-
             if (region == null) return;
+            if (this.Width == 0 || this.Height == 0) return;
 
             var bounds = BoundsFromMapSpans(region);
             if (bounds == null) return;
